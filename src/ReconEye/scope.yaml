@@ -1,0 +1,21 @@
+scope:
+  domains:
+    - lab.internal
+    - example.com
+  hosts:
+    - hostname: www.lab.internal
+      ports: [80, 443]
+    - hostname: mail.lab.internal
+      ports: [25, 143, 993]
+checks:
+  - C1: tcp_connect
+  - C2: banner_identify
+  - C3: tls_inspect
+  - C4: http_head
+discovery:
+  allowed_labels: [www, api, mail, dev]
+  max_candidates: 50
+limits:
+  max_rps: 20
+  per_host_concurrency: 2
+  timeout_s: 5

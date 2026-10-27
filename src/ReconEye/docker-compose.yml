@@ -1,0 +1,3 @@
+# Docker Compose lab placeholder
+version: "3.8"
+services: {}
